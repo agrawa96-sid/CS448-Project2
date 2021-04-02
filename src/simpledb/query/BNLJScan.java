@@ -148,8 +148,9 @@ public class BNLJScan implements Scan {
         while (true) {
             // innermost loop
             while (s.next()) {
-                if (pred.isSatisfied(this)) {
-                    System.out.println("matched " + s.getVal("d") + " " + r.getVal("b"));
+               // Check if both Values are existing or not
+                if (pred.isSatisfied(this) && !(s.getVal("d").equals(new Constant(""))) && !r.getVal("b").equals(new Constant(""))) {
+                //if (pred.isSatisfied(this))  {
                     return true;
                 }
             }
